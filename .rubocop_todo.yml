@@ -88,6 +88,10 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 8
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'
+
 # Offense count: 2
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, EnforcedStyle.
@@ -107,6 +111,7 @@ Style/Documentation:
     - 'app/mailers/application_mailer.rb'
     - 'app/models/application_record.rb'
     - 'config/application.rb'
+  Enabled: false
 
 # Offense count: 1
 # Cop supports --auto-correct.
