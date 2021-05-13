@@ -1,7 +1,6 @@
 require 'rails_helper'
-require_relative '../../lib/postcode_api'
 
-RSpec.describe PostcodeApi, type: :helper do
+RSpec.describe ApplicationHelper, type: :helper do
   describe 'check_postcode_format' do
     let(:valid_postcode) { 'SE17QD' }
 
