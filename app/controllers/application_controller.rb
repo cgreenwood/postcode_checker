@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   ALLOWED_LSOAS = %w(Southwark Lambeth).freeze
 
-  ALLOWED_POSTCODES = ["SH241AA", "SH241AB"]
+  ALLOWED_POSTCODES = %w[SH241AA SH241AB].freeze
 
   before_action :flash_clear, only: :checker
 
@@ -14,9 +14,7 @@ class ApplicationController < ActionController::Base
   def checker
     response = PostcodeApi.check_postcode(postcode_params[:text])
 
-    allowed_lsoa = response['result']['lsoa'].present? && ALLOWED_LSOAS.any? { |lsoa| response['result']['lsoa'].include?(lsoa) }
-    allowed_postcode = ALLOWED_POSTCODES.any? { |postcode| postcode_params[:text].gsub(/\s+/, "").upcase.include?(postcode) }
-    if allowed_lsoa || allowed_postcode
+    if allowed_lsoa?(response) || allowed_postcode?(postcode_params[:text])
       flash[:success] = "Good news! It appears as though you're in our service area."
     else
       flash[:danger] = "Sorry it doesn't look like we can reach you."
@@ -28,6 +26,14 @@ class ApplicationController < ActionController::Base
 
     flash[:danger] = "Sorry we couldn't recognise your postcode. Please try again."
     redirect_to root_path
+  end
+
+  def allowed_lsoa?(response)
+    response['result']['lsoa'].present? && ALLOWED_LSOAS.any? { |lsoa| response['result']['lsoa'].include?(lsoa) }
+  end
+
+  def allowed_postcode?(input_postcode)
+    ALLOWED_POSTCODES.any? { |postcode| input_postcode.gsub(/\s+/, "").upcase.include?(postcode) }
   end
 
   def flash_clear
