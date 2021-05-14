@@ -2,7 +2,8 @@ require 'uri'
 
 class PostcodeApi
   def self.check_postcode(postcode)
-    url = CGI.escape("http://postcodes.io/postcodes/#{postcode}")
+    cleaned_postcode = postcode.gsub(/\s+/, "")
+    url = "http://postcodes.io/postcodes/#{cleaned_postcode}"
     request = RestClient.get(url)
     raise 'Received a response other than 200' if request.code != 200
 

@@ -1,0 +1,13 @@
+- flash.each do |flash_type, message|
+  %div{class: "alert alert-#{flash_type}"}
+    %strong= message
+.card
+  .card-header
+    %h4 Postcode checker
+  .card-body
+    = form_tag checker_path do
+      .row
+        .col-10
+          = text_field_tag 'postcode[text]', '', class: 'form-control', required: true, placeholder: 'Enter your postcode here e.g. SE1 7QD'
+        .col-12.text-right
+          = submit_tag 'Check', class: 'btn btn-primary mt-2'
