@@ -91,6 +91,7 @@ Metrics/PerceivedComplexity:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'lib/tasks/cucumber.rake'
 
 # Offense count: 2
 # Cop supports --auto-correct.

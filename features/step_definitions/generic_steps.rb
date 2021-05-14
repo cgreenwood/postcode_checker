@@ -13,3 +13,7 @@ end
 Then('I can see the {string} message {string}') do |message_type, message_text|
   page.should have_selector ".alert.alert-#{message_type}", text: message_text
 end
+
+Then('I cannot see the {string} message {string}') do |message_type, message_text|
+  page.should_not have_selector ".alert.alert-#{message_type}", text: message_text
+end

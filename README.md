@@ -19,6 +19,11 @@ Please ensure you have the right versions of the following installed:
 
 ## Testing
 
+### Linter
+
+You can check the codebase using the following command:
+`$ rubocop`
+
 ### Unit Testing
 
 Tests are written using RSpec, to run them use the following command:
