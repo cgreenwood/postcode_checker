@@ -20,6 +20,27 @@ Scenario:
 Scenario:
   Given I am on the homepage
   And that the postcode.io site is available
+  When I fill in "postcode_text" with "se1 7qd"
+  And I click on "Check"
+  Then I can see the "success" message "Good news! It appears as though you're in our service area."
+
+Scenario:
+  Given I am on the homepage
+  And that the postcode.io site is available
+  When I fill in "postcode_text" with "SH241AA"
+  And I click on "Check"
+  Then I can see the "success" message "Good news! It appears as though you're in our service area."
+
+Scenario:
+  Given I am on the homepage
+  And that the postcode.io site is available
+  When I fill in "postcode_text" with "sh24 1aa"
+  And I click on "Check"
+  Then I can see the "success" message "Good news! It appears as though you're in our service area."
+
+Scenario:
+  Given I am on the homepage
+  And that the postcode.io site is available
   When I fill in "postcode_text" with "10 Downing Street"
   And I click on "Check"
   Then I can see the "danger" message "Sorry we couldn't recognise your postcode. Please try again."
