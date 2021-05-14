@@ -1,24 +1,27 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
+### System dependencies
 
-* Ruby version
+Please ensure you have the right versions of the following installed:
+- Ruby version - `2.6.5`
+- Ruby on Rails version - `6.1.3.2`
 
-* System dependencies
+### Steps for setup
 
-* Configuration
+1) `$ gem install bundler`
+2) `$ bundle install`
+3) `$ rails s`
 
-* Database creation
+## Testing
 
-* Database initialization
+### Unit Testing
 
-* How to run the test suite
+Tests are written using RSpec, to run them use the following command:
+`$ rspec spec/`
 
-* Services (job queues, cache servers, search engines, etc.)
+### Acceptance Testing
 
-* Deployment instructions
-
-* ...
+Tests are written using Cucumber/Capybara, to run them use the following command:
+`$ bundle exec cucumber features/`
