@@ -14,8 +14,11 @@ Please ensure you have the right versions of the following installed:
 2) `$ gem install bundler -v 2.2.17`
 3) `$ gem install rails -v '6.1.3.2'`
 4) `$ bundle install`
-5) `$ rails s`
-6) Go to [http://localhost:3000](http://localhost:3000)
+
+### Running the application
+
+1) `$ rails s`
+2) Go to [http://localhost:3000](http://localhost:3000)
 
 ## Testing
 
